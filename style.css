@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+#chat-container {
+    width: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#user-input {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+#send-btn {
+    width: 60px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de la caja de sugerencias */
+.suggestions-box {
+    display: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 97%;
+    max-height: 150px;
+    overflow-y: scroll;
+    z-index: 10;
+    position: absolute;
+    bottom: 75px;
+    left: 0;
+    padding: 5px;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background: #ddd;
+}
