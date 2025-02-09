@@ -95,13 +95,41 @@ function getBotResponse(userInput) {
     return responses["default"];
 }
 
+let color = true;
 // Agregar mensaje al chat
 function addMessageToChatBox(message, imageUrl = null) {
     const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
     messageElement.textContent = message;
-    chatBox.appendChild(messageElement);
+    
+if (color){
+    
+    // Aplicar estilos al div
+    messageElement.style.backgroundColor = '#4CAF50'; // Color de fondo
+    messageElement.style.color = '#333'; // Color del texto
+    messageElement.style.padding = '10px'; // Espaciado interno
+    messageElement.style.marginBottom = '5px'; // Margen inferior
+    messageElement.style.borderRadius = '5px'; // Bordes redondeados
+    
+messageElement.style.marginLeft = '20px'; // Margen Izquierda 
+    
+} else {
+    
+    // Aplicar estilos al div
+    messageElement.style.backgroundColor = '#f0f0f0'; // Color de fondo
+    messageElement.style.color = '#333'; // Color del texto
+    messageElement.style.padding = '10px'; // Espaciado interno
+    messageElement.style.marginBottom = '5px'; // Margen inferior
+    messageElement.style.borderRadius = '5px'; // Bordes redondeados
+    
+messageElement.style.marginRight = '20px'; // Margen Derecho
+    
+    
+    
+}
+    
 
+     chatBox.appendChild(messageElement);
     if (imageUrl) {
         const imageElement = document.createElement('img');
         imageElement.src = imageUrl;
@@ -110,14 +138,17 @@ function addMessageToChatBox(message, imageUrl = null) {
         chatBox.appendChild(imageElement);
     }
 
+   
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // Función para enviar mensaje al chat (desde input o clic en sugerencia)
 function sendMessage(userInput) {
     if (userInput.trim() !== "") {
+        color =true;
         addMessageToChatBox("Tú: " + userInput);
         const botResponse = getBotResponse(userInput);
+        color = false;
         addMessageToChatBox("Chatbot: " + botResponse.response, botResponse.image);
         document.getElementById('user-input').value = "";
     }
